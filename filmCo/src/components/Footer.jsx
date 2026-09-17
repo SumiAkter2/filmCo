@@ -1,4 +1,5 @@
 import logoImg from "../assets/images/logo-4-removebg-preview.png";
+import { FolderGit2 } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -52,13 +53,16 @@ const Footer = () => {
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
               </svg>
             </a>
+            <a href="https://github.com/SumiAkter2/filmCo">
+              <FolderGit2 />
+            </a>
           </div>
         </nav>
         <aside></aside>
       </footer>
       <p className="text-bold text-sm text-white text-center">
-        Copyright © {new Date().getFullYear()} - All right reserved by ACME
-        Industries Ltd
+        Copyright © {new Date().getFullYear()} - All right reserved by{" "}
+        <span className="font-bold">FilmCo</span>
       </p>
     </div>
   );
