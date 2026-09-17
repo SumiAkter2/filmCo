@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <div className="max-lg:collapse bg-[#0B1020] shadow-xl w-full py-4  rounded-none">
+      <div className="max-lg:collapse bg-[#0B1020] shadow-xl w-full  rounded-none lg:px-4">
         <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
         <label
           htmlFor="navbar-1-toggle"
@@ -13,9 +13,9 @@ const Navbar = () => {
         ></label>
         <div className="collapse-title navbar ">
           <div className="navbar-start">
-            <button className="btn btn-link  ">
+            <a href="/" className=" ">
               <img className="lg:w-48 w-36" src={logoImg} alt="brand-logo" />
-            </button>
+            </a>
           </div>
           {/* center  */}
           <div className="navbar-center text-white hidden lg:flex">

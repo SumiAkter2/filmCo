@@ -4,7 +4,7 @@ import { FolderGit2 } from "lucide-react";
 const Footer = () => {
   return (
     <div className="bg-[#0B1020] py-6">
-      <footer className="footer sm:footer-horizontal  text-white p-10">
+      <footer className="footer sm:footer-horizontal  text-white lg:px-6 px-2 py-10">
         <aside>
           <img className="w-48 " src={logoImg} alt="brand-logo" />
         </aside>

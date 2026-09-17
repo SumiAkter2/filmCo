@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
+import banner from "../assets/images/cine-bg.avif";
 
 const Banner = () => {
   return (
     <section
       className="relative min-h-[550px] flex items-center bg-cover bg-center"
       style={{
-        backgroundImage:
-          "linear-gradient(to right, rgba(11, 16, 32, 0.94), rgba(11,16,32,0.55), rgba(11,16,32,0.2)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80')",
+        backgroundImage: `linear-gradient(to right, rgba(11, 16, 32, 0.94), rgba(11,16,32,0.55), rgba(11,16,32,0.2)), url(${banner})`,
       }}
     >
-      <div className="max-w-7xl mx-auto w-full px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto w-full  px-6 lg:px-12">
         <div className="max-w-2xl text-white">
           <p className="text-[#EC4899] font-semibold text-lg mb-3">
             WELCOME TO <span className="font-bold">FILMCO</span>
