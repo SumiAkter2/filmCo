@@ -63,7 +63,7 @@ const MovieCard = ({ movie }) => {
                   "https://via.placeholder.com/800x500?text=No+Image"
                 }
                 alt={movie.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain "
               />
             </div>
 
@@ -79,26 +79,37 @@ const MovieCard = ({ movie }) => {
 
                 <span>📅 Release: {movie.premiered || "N/A"}</span>
               </div>
-
-              {/* Genre */}
-              {movie.genres?.length > 0 && (
+              <div className="flex justify-between items-center">
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Genre
+                    Director
                   </h3>
 
-                  <div className="flex flex-wrap gap-2">
-                    {movie.genres.map((genre) => (
-                      <span
-                        key={genre}
-                        className="badge bg-[#7C3AED] border-none text-white"
-                      >
-                        {genre}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-gray-300">
+                    {movie.director || "Not available"}
+                  </p>
                 </div>
-              )}
+
+                {/* Genre */}
+                {movie.genres?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-white mb-2">
+                      Genre
+                    </h3>
+
+                    <div className="flex flex-wrap gap-2">
+                      {movie.genres.map((genre) => (
+                        <span
+                          key={genre}
+                          className="badge bg-[#7C3AED] border-none text-white"
+                        >
+                          {genre}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Summary */}
               <div className="mb-6">
