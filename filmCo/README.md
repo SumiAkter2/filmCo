@@ -28,6 +28,8 @@ FilmCo is a simple movie and TV show explorer website.
 - Loading spinner
 - No result message
 - Responsive design
+- Added a Not Found Page
+- Added a coming soon page
 
 ## 🛠️ Technologies
 
