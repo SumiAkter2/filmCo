@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="collapse-title navbar ">
           <div className="navbar-start">
             <button className="btn btn-link  ">
-              <img className="w-48 " src={logoImg} alt="brand-logo" />
+              <img className="lg:w-48 w-36" src={logoImg} alt="brand-logo" />
             </button>
           </div>
           {/* center  */}
@@ -67,10 +67,10 @@ const Navbar = () => {
           </div>
           {/* end */}
           <div className="navbar-end">
-            {/* Prominent Movies button */}
+            {/*  Movies button */}
             <Link
               to="/movies"
-              className="btn border-none bg-[#EC4899] text-white text-lg font-bold hover:bg-[#7C3AED] mr-6 rounded-3xl"
+              className="btn lg:btn-lg btn-sm border-none bg-[#F97316] text-white lg:text-lg text-sm font-bold hover:bg-[#EC4899] lg:mr-6 rounded-3xl"
             >
               Explore Movies
             </Link>

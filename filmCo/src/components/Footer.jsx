@@ -60,7 +60,7 @@ const Footer = () => {
         </nav>
         <aside></aside>
       </footer>
-      <p className="text-bold text-sm text-white text-center">
+      <p className=" text-sm text-white text-center">
         Copyright © {new Date().getFullYear()} - All right reserved by{" "}
         <span className="font-bold">FilmCo</span>
       </p>
