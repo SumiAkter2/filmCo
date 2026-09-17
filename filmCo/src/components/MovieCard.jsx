@@ -18,7 +18,7 @@ const MovieCard = ({ movie }) => {
         <h2 className="card-title text-white">{movie.name}</h2>
 
         <div className="flex items-center gap-3 text-gray-300 text-sm">
-          <span>⭐ {movie.rating?.average || "N/A"}</span>
+          <span> ⭐ {movie.rating?.average || "N/A"}</span>
 
           <span>•</span>
 

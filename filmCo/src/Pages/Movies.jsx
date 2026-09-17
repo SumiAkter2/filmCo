@@ -3,7 +3,7 @@ import MovieCard from "../components/MovieCard";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("girls");
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -11,13 +11,27 @@ const Movies = () => {
       setLoading(true);
 
       try {
-        const response = await fetch(
-          `https://api.tvmaze.com/search/shows?q=${search}`,
-        );
+        let url;
 
+        // for all show
+        if (search === "") {
+          url = "https://api.tvmaze.com/shows";
+        }
+        // for searching show
+        else {
+          url = `https://api.tvmaze.com/search/shows?q=${search}`;
+        }
+
+        const response = await fetch(url);
         const data = await response.json();
 
-        setMovies(data);
+        // show result
+        if (search === "") {
+          setMovies(data);
+        } else {
+          const searchResults = data.map((item) => item.show);
+          setMovies(searchResults);
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -28,10 +42,11 @@ const Movies = () => {
     fetchMovies();
   }, [search]);
 
+  // search handle :
   const handleSearch = (e) => {
     e.preventDefault();
 
-    const searchValue = e.target.search.value;
+    const searchValue = e.target.search.value.trim();
 
     setSearch(searchValue);
   };
@@ -44,7 +59,7 @@ const Movies = () => {
           <input
             type="text"
             name="search"
-            placeholder="🔍 Search for a movie..."
+            placeholder="🔍 Search Shows"
             className="input w-full bg-white text-black rounded-l-full rounded-r-none"
           />
 
@@ -57,10 +72,15 @@ const Movies = () => {
         </div>
       </form>
 
-      {/* Title */}
+      {/* Heading */}
       <div className="max-w-7xl mx-auto mb-8">
-        <h2 className="text-3xl font-bold text-white">
+        {/* <h2 className="text-3xl font-bold text-white">
           Explore Movies & TV Shows
+        </h2> */}
+        <h2 className="text-3xl font-bold text-white">
+          {search === ""
+            ? "Explore Your Next Favorite Shows"
+            : `Searching the Spotlight for "${search}"`}
         </h2>
       </div>
 
@@ -71,16 +91,16 @@ const Movies = () => {
         </div>
       )}
 
-      {/* Movie Grid */}
+      {/* Movie Cards */}
       {!loading && (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-6">
           {movies.map((movie) => (
-            <MovieCard key={movie.show.id} movie={movie.show} />
+            <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
       )}
 
-      {/* No result */}
+      {/* No Result */}
       {!loading && movies.length === 0 && (
         <p className="text-center text-white mt-10">No movies found.</p>
       )}
